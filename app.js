@@ -1,3 +1,30 @@
+let users = [
+  { name: "Иван", progress: 90 },
+  { name: "Мария", progress: 70 },
+  { name: "Алексей", progress: 40 },
+  { name: "Дима", progress: 20 }
+];
+function updateAnalytics() {
+
+  let total = users.length;
+
+  let sum = users.reduce((acc, u) => acc + u.progress, 0);
+  let avg = Math.round(sum / total);
+
+  let best = users.reduce((prev, current) =>
+    (prev.progress > current.progress) ? prev : current
+  );
+
+  let low = users.filter(u => u.progress < 50).length;
+
+  document.getElementById("totalUsers").innerText = total;
+  document.getElementById("avgProgress").innerText = avg + "%";
+  document.getElementById("bestUser").innerText = best.name + " — " + best.progress + "%";
+  document.getElementById("lowUsers").innerText = low;
+}
+
+updateAnalytics();
+
 document.addEventListener('DOMContentLoaded', () => {
     // LocalStorage Helpers
     const getUsers = () => JSON.parse(localStorage.getItem('users') || '[]');
