@@ -1,101 +1,98 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRM Менеджер задач</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRM Game System</title>
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <!-- Login Section -->
-    <div id="login-section" class="section">
-        <h1>Вход</h1>
-        <input type="text" id="login-username" placeholder="Имя пользователя" autocomplete="off">
-        <input type="password" id="login-password" placeholder="Пароль" autocomplete="off">
-        <button id="login-btn">Войти</button>
-        <p id="login-error" class="error"></p>
+
+<div class="container">
+
+  <!-- ===== LOGIN ===== -->
+  <div class="login-box" id="loginBox">
+    <h2>Вход в систему</h2>
+
+    <label>Логин</label>
+    <input type="text" placeholder="mentor или member">
+
+    <label>Пароль</label>
+    <input type="password" placeholder="123">
+
+    <button>Войти</button>
+  </div>
+
+  <!-- ===== DASHBOARD ===== -->
+
+  <div id="app" style="display:none;">
+
+    <h1>CRM Система Команды</h1>
+
+    <!-- NAV -->
+    <div class="card">
+      <button>Наставник</button>
+      <button>Участник</button>
+      <button>Аналитика</button>
     </div>
 
-    <!-- Mentor Dashboard -->
-    <div id="mentor-dashboard" class="section" style="display: none;">
-        <button id="logout-btn" class="logout-btn">Выйти</button>
-        <h1>Панель ментора</h1>
+    <!-- STATS -->
+    <div class="grid">
 
-        <div class="card">
-            <h2>Добавить нового пользователя</h2>
-            <input type="text" id="new-user-name" placeholder="Имя пользователя">
-            <button id="add-user-btn">Добавить пользователя</button>
-        </div>
+      <div class="card">
+        <h3>👥 Участники</h3>
+        <p>5 человек</p>
+      </div>
 
-        <div class="card">
-            <h2>Создать шаблон задачи</h2>
-            <input type="text" id="task-title" placeholder="Название задачи">
-            <input type="number" id="task-target" placeholder="Целевое количество" min="1">
-            <button id="create-task-btn">Создать задачу</button>
-        </div>
+      <div class="card">
+        <h3>📈 Средний прогресс</h3>
+        <p>62%</p>
+      </div>
 
-        <div class="card">
-            <h2>Назначить задачу пользователю</h2>
-            <select id="assign-user-select"></select>
-            <select id="assign-task-select"></select>
-            <button id="assign-task-btn">Назначить задачу</button>
-        </div>
+      <div class="card">
+        <h3>🏆 Лидер</h3>
+        <p>Иван — 90%</p>
+      </div>
 
-        <!-- Analytics Dashboard -->
-        <div class="card">
-            <h2>Аналитическая панель</h2>
-            
-            <div class="summary-cards">
-                <div class="summary-card">
-                    <h3>Всего пользователей</h3>
-                    <p id="total-users">0</p>
-                </div>
-                <div class="summary-card">
-                    <h3>Активные (24ч)</h3>
-                    <p id="active-users">0</p>
-                </div>
-                <div class="summary-card">
-                    <h3>Средний прогресс</h3>
-                    <p id="avg-progress">0%</p>
-                </div>
-                <div class="summary-card">
-                    <h3>Завершившие пользователи</h3>
-                    <p id="completed-users">0</p>
-                </div>
-            </div>
+      <div class="card">
+        <h3>⚠️ Отстающий</h3>
+        <p>Дима — 20%</p>
+      </div>
 
-            <div class="analytics-section">
-                <h3>Лидерборд (по прогрессу)</h3>
-                <div id="leaderboard-container"></div>
-            </div>
-
-            <div class="analytics-section">
-                <h3>Пользователи под риском (прогресс < 50%)</h3>
-                <div id="at-risk-container"></div>
-            </div>
-
-            <div class="analytics-section">
-                <h3>Активность за последние 24 часа</h3>
-                <div id="activity-container"></div>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>Пользователи и их задачи</h2>
-            <div id="users-list"></div>
-        </div>
     </div>
 
-    <!-- Member Dashboard -->
-    <div id="member-dashboard" class="section" style="display: none;">
-        <button id="member-logout-btn" class="logout-btn">Выйти</button>
-        <h1>Панель участника</h1>
-        <div class="card">
-            <h2>Мои задачи</h2>
-            <div id="member-tasks-list"></div>
-        </div>
+    <!-- TASKS -->
+    <h2>Задачи</h2>
+
+    <div class="card">
+      <h3>Задача 1</h3>
+      <p>Добавить 10 контактов</p>
+
+      <div class="progress">
+        <div class="progress-bar" style="width: 40%"></div>
+      </div>
+
+      <button>Выполнить</button>
     </div>
 
-    <script src="app.js"></script>
+    <div class="card">
+      <h3>Задача 2</h3>
+      <p>Созвон с лидом</p>
+
+      <div class="progress">
+        <div class="progress-bar" style="width: 70%"></div>
+      </div>
+
+      <button>Выполнено</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+
 </body>
 </html>
