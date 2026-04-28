@@ -296,3 +296,24 @@ document.addEventListener('DOMContentLoaded', () => {
         showLogin();
     }
 });
+document.addEventListener("DOMContentLoaded", function () {
+
+  const loginBox = document.getElementById("loginBox");
+  const app = document.getElementById("app");
+  const button = document.querySelector("button");
+
+  button.addEventListener("click", function () {
+
+    const login = document.querySelector("input[type='text']").value;
+    const password = document.querySelector("input[type='password']").value;
+
+    if ((login === "mentor" || login === "member") && password === "123") {
+      loginBox.style.display = "none";
+      app.style.display = "block";
+    } else {
+      alert("Неверный логин или пароль");
+    }
+
+  });
+
+});
