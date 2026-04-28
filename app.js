@@ -380,3 +380,41 @@ function showMemberPanel() {
     analytics.style.display = "none";
   }
 }
+
+let tasks = [
+  { title: "Добавить 10 контактов", user: "member", progress: 40 },
+  { title: "Созвон с клиентом", user: "member", progress: 70 },
+  { title: "Обучение команды", user: "mentor", progress: 90 }
+];
+
+function renderTasks() {
+
+  let container = document.getElementById("tasksContainer");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  let visibleTasks;
+
+  if (currentRole === "mentor") {
+    visibleTasks = tasks;
+  } else {
+    visibleTasks = tasks.filter(t => t.user === "member");
+  }
+
+  visibleTasks.forEach(task => {
+    let div = document.createElement("div");
+    div.className = "card";
+
+    div.innerHTML = `
+      <h3>${task.title}</h3>
+      <p>Прогресс: ${task.progress}%</p>
+      <div class="progress">
+        <div class="progress-bar" style="width: ${task.progress}%"></div>
+      </div>
+    `;
+
+    container.appendChild(div);
+  });
+}
