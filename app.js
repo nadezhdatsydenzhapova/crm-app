@@ -334,13 +334,47 @@ document.addEventListener("DOMContentLoaded", function () {
     const login = document.querySelector("input[type='text']").value;
     const password = document.querySelector("input[type='password']").value;
 
-    if ((login === "mentor" || login === "member") && password === "123") {
-      loginBox.style.display = "none";
-      app.style.display = "block";
-    } else {
-      alert("Неверный логин или пароль");
-    }
+    if (login === "mentor" && password === "123") {
+
+  currentRole = "mentor";
+
+  loginBox.style.display = "none";
+  app.style.display = "block";
+
+  showMentorPanel();
+}
+
+else if (login === "member" && password === "123") {
+
+  currentRole = "member";
+
+  loginBox.style.display = "none";
+  app.style.display = "block";
+
+  showMemberPanel();
+}
+
+else {
+  alert("Неверный логин или пароль");
+}
 
   });
 
 });
+function showMentorPanel() {
+  document.querySelector("h1").innerText = "Панель наставника";
+
+  const analytics = document.getElementById("analyticsBlock");
+  if (analytics) {
+    analytics.style.display = "block";
+  }
+}
+
+function showMemberPanel() {
+  document.querySelector("h1").innerText = "Мои задачи";
+
+  const analytics = document.getElementById("analyticsBlock");
+  if (analytics) {
+    analytics.style.display = "none";
+  }
+}
