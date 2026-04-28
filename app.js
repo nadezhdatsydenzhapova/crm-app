@@ -342,6 +342,7 @@ document.addEventListener("DOMContentLoaded", function () {
   app.style.display = "block";
 
   showMentorPanel();
+      renderTasks();
 }
 
 else if (login === "member" && password === "123") {
@@ -352,6 +353,7 @@ else if (login === "member" && password === "123") {
   app.style.display = "block";
 
   showMemberPanel();
+  renderTasks();
 }
 
 else {
