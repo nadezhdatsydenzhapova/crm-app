@@ -8,7 +8,14 @@ let tasks = [
 ];
 
 // ===== ОЖИДАЕМ ЗАГРУЗКУ СТРАНИЦЫ =====
+
 document.addEventListener("DOMContentLoaded", function () {
+  const loginBox = document.getElementById("loginBox");
+const app = document.getElementById("app");
+
+// 👉 при старте
+loginBox.style.display = "block";
+app.style.display = "none";
 
   const loginBox = document.getElementById("loginBox");
   const app = document.getElementById("app");
